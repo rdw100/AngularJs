@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html ng-app="loanCalculator">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="assets/loancalculator.css">
+    <script type="text/javascript" src="assets/angular.min.js"></script>
+    <script type="text/javascript" src="assets/loancalculator.js"></script>
+    <title>Loan Calculator</title>
+</head>
+<body>
+<div id="loanCalculator" ng-controller="CalculatorController">
+    <div class="tab">
+        <button class="tablinks" ng-click="openLoan($event, 'Cost')" ng-disabled="loanForm.$invalid" id="defaultOpen">Monthly Cost</button>
+        <button class="tablinks" ng-click="openLoan($event, 'Loan')" ng-disabled="loanForm.$invalid">Maximum Loan</button>
+    </div>  
+    <form name="loanForm" ng-init="init()" novalidate ng-submit="loanForm.$valid &&sendForm()">
+        <div id="Cost" class="tabcontent">
+            <div class="wrapper">
+                <div class="box a">
+                    <h4>Monthly <br>payments</h4>
+                    <p>{{totalMonthPay}}</p>
+                </div>
+                <div class="box b">
+                    <h4>Total <br>interest</h4>
+                    <p>{{totalMonthInterest}}</p>                
+                </div>
+                <div class="box c">
+                    <h4>Total <br>cost</h4>
+                    <p>{{totalMonthLoan}}</p>
+                </div>
+                <div class="box d">
+                    <h3>Loan ($)</h3>
+                    <input type="number" name="amount" ng-change="calculate()" ng-model="current_amount" ng-min="10000" ng-max="1000000" ng-pattern="/^[1-9]\d*$/" value="{{current_amount}}" min="10000" max="1000000" required/>
+                    <div class="errorMessages">
+                        <div ng-show="loanForm.amount.$dirty&&loanForm.amount.$error.min">Minimum $10,000.</div>
+                        <div ng-show="loanForm.amount.$dirty&&loanForm.amount.$error.max">Maximum $1,000,000.</div>
+                        <div ng-show="loanForm.amount.$dirty&&loanForm.amount.$error.pattern">Whole numbers.</div>                        
+                    </div>
+                </div>
+                <div class="box e">
+                    <h3>Rate (%)</h3>
+                    <input name="current_month_rate" type="number" ng-change="calculate()" ng-model="current_rate" ng-pattern="/(?<![\d.])(\d{1,2}|\d{0,2}\.\d{1,2})?(?![\d.])/" value="{{current_rate}}" min="0" step=".01" max="25" required>
+                    <div class="errorMessages">
+                        <div ng-show="loanForm.current_month_rate.$dirty&&loanForm.current_month_rate.$error.min">Minimum 0%.</div>
+                        <div ng-show="loanForm.current_month_rate.$dirty&&loanForm.current_month_rate.$error.max">Maximum 25%.</div>
+                        <div ng-show="loanForm.current_month_rate.$dirty&&loanForm.current_month_rate.$error.pattern">Format ##.##</div>
+                    </div>  
+                </div>
+                <div class="box f">
+                    <h3>Term (years)</h3>
+                    <select ng-change="calculate()" ng-model="current_years" ng-options="o as o for o in year_options">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div id="Loan" class="tabcontent">
+            <div class="wrapper">
+                <div class="box g">
+                    <h4>Total <br>loan</h4>
+                    <p>{{totalAffordLoan}}</p>
+                </div>
+                <div class="box h">
+                    <h4>Total <br>interest</h4>
+                    <p>{{totalAffordInterest}}</p> 
+                </div>
+                <div class="box i">
+                    <h4>Total <br>cost</h4>
+                    <p>{{totalAffordPay}}</p>  
+                </div>
+                <div class="box j">
+                    <h3>Payments ($)</h3>
+                    <input name="payment" type="number" ng-change="calculate()" ng-model="current_payment" ng-pattern="/^[0-9]+(\.[0-9]{1,2})?$/" value="{{current_payment}}" min="100" max="10000" required>
+                    <div class="errorMessages">
+                        <div ng-show="loanForm.payment.$dirty&&loanForm.payment.$error.min">Minimum $100.</div>
+                        <div ng-show="loanForm.payment.$dirty&&loanForm.payment.$error.max">Maximum $10,000.</div>
+                        <div ng-show="loanForm.payment.$dirty&&loanForm.payment.$error.pattern">Format .##</div>  
+                    </div>
+                </div>
+                <div class="box k">
+                    <h3>Rate (%)</h3>
+                    <input name="current_afford_rate" type="number" ng-change="calculate()" ng-model="current_rate" ng-pattern="/(?<![\d.])(\d{1,2}|\d{0,2}\.\d{1,2})?(?![\d.])/" value="{{current_rate}}" min="0" step=".01" max="25" required> 
+                    <div class="errorMessages">
+                        <div ng-show="loanForm.current_afford_rate.$dirty&&loanForm.current_afford_rate.$error.min">Minimum 0%.</div>
+                        <div ng-show="loanForm.current_afford_rate.$dirty&&loanForm.current_afford_rate.$error.max">Maximum 25%.</div>
+                        <div ng-show="loanForm.current_afford_rate.$dirty&&loanForm.current_afford_rate.$error.pattern">Format ##.##</div>
+                    </div>  
+                </div>
+                <div class="box l">
+                    <h3>Term (years)</h3>
+                    <select ng-change="calculate()" ng-model="current_years" ng-options="o as o for o in year_options">
+                    </select>
+                </div>
+            </div>
+        </div>
+    </form> 
+</div>
+</body>
+</html>

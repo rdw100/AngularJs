@@ -1,0 +1,134 @@
+body {font-family: Verdana, Geneva, Tahoma, sans-serif; }
+
+.tab {
+    overflow: hidden;
+    background-color: #1B3409;
+    max-width: 800px;
+}
+
+.tab button {
+    color:white;
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 2em;
+    width: 50%;
+}
+
+.tab button:hover {
+    color:white;
+    font-weight: bold;
+}
+
+.tab button.active {
+    color: #000;
+    font-weight: bold;
+    background-color: #EBF7E3;
+}
+
+.tabcontent {
+    display: none;
+    border-top: none;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 33.3% 33.3% 33.3%;
+    background-color: #fff;
+    background-color: #EBF7E3;
+    color: #444;
+    max-width: 800px;
+}
+
+.box {
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 150%;
+    text-align: center;
+}
+
+.box h3 {
+    font-size: .65em;
+    margin: 0;
+    padding-bottom: 2px;
+    text-align: center;
+}
+
+.box h4 {
+    font-size: .5em;
+    margin: 0;
+}
+
+.box p {
+    font-size: 1em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.box input, select {
+    font-size: 1em;
+    margin: 0;
+    align-content: center;
+    text-align: center;
+}
+
+.a, .b, .c, .g, .h, .i{
+    float: left;
+    text-align: center;
+    padding-top: 110px;
+    color: #000;
+    background-repeat: no-repeat;
+    background-position: center 5px;
+    background-size: 50px 100px;
+}
+
+.a, .g { background-color: #EBF7E3; background-image: url(images/loan_dol.svg);}
+.b, .h { background-color: #EBF7E3; background-image: url(images/loan_per.svg);}
+.c, .i { background-color: #EBF7E3; background-image: url(images/loan_cal.svg);}
+
+.d, .e, .f , .j, .k, .l {
+    color: #fff;
+    background-color: #375F1B;
+}
+
+br {display: none;}
+
+.errorMessages {
+    color: Red;
+    font-size: .65em;
+    height: 20px;
+}
+
+@media screen and (max-width:500px) {
+    .tab button {
+        font-size: 1em;
+    }
+
+    .box p {
+        font-size: .4em;
+    }
+
+    .box h3 {
+        font-size: .4em;
+        white-space: nowrap;
+    }
+
+    .box h4 {
+        font-size: .4em;
+    }
+
+    .box input, select{
+        font-size: .5em;
+        max-width: 65px;
+    }
+
+    .errorMessages {
+        font-size: .4em;
+    }
+
+    br {display: inline;}
+}
