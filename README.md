@@ -13,7 +13,9 @@ Monthly mortgage payments are calculated using the following formula:
 - PV is the mortgage amount (present value)
 
 This can answer what your monthly mortgage payments on your home based on term of your mortgage, interest rate, and mortgage loan amount.
+
 ---
+
 Loan amounts are calculated using the following formula:
 
 ![Affordable Loan](https://latex.codecogs.com/gif.latex?%5CLARGE%20P_%7B0%7D%3D%5Cfrac%7Bd%281-%281&plus;%5Cfrac%7Br%7D%7Bk%7D%29%5E%7B-Nk%7D%29%7D%7B%28%5Cfrac%7Br%7D%7Bk%7D%29%7D)
