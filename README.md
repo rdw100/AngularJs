@@ -1,6 +1,8 @@
 # AngularJs
 This AngularJS demonstration project was created using Visual Studio Code 1.48.0, AngularJS v1.8.0, HTML, & CSS. The objective is to demonstrate a responsive layout without reloading the page using a Javascript-based open-source front-end web framework to develop a single-page application.
 
+![Loan Calculator GIF](https://github.com/rdw100/AngularJs/blob/master/assets/images/FVmR3KtYGl.gif)
+
 Monthly mortgage payments are calculated using the following formula:
 
 ![Monthly Payments](https://latex.codecogs.com/gif.latex?%5CLARGE%20PMT%3D%5Cfrac%7BPVi%281&plus;i%29%5En%7D%7B%281&plus;i%29%5En-1%7D)
