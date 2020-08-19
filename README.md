@@ -1,5 +1,5 @@
 # AngularJs
-This AngularJS demonstration project was created using Visual Studio Code 1.48.0, AngularJS v1.8.0, HTML, & CSS. The objective is to demonstrate a single-page application with a responsive layout that does not reload the page and uses a Javascript-based open-source front-end web framework.
+This AngularJS demonstration project was created using Visual Studio Code 1.48.0, AngularJS v1.8.0, HTML, & CSS. The objective is to demonstrate a single-page application with a responsive layout that does not reload the page and uses a JavaScript-based open-source front-end web framework.
 
 ![Loan Calculator GIF](https://github.com/rdw100/AngularJs/blob/master/assets/images/FVmR3KtYGl.gif)
 
